@@ -8,22 +8,22 @@ export default class Task {
   }
 
   get Template() {
-    return `
+    return /*html*/ `
     <div class="col-md-4 py-3">
       <div class="task-card shadow bg-white rounded">
           <div class="text-center ${this.color} p-2 d-flex justify-content-between">
               <h3>${this.taskName}</h3>
               <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')"></i>
           </div>
-          <div id="listItemCount"><span class="ListItemCount"> /${this.ListItemCount}</span></div>
+          <div id="listItemCount"><span class="ListItemCount"> ${this.ListItemCount}/${ProxyState.listItems.length}</span></div>
           <div class="p-3">
               <ul>
                   ${this.ListItems}
               </ul>
           </div>
           <form class="d-flex p-2" onsubmit="app.listItemsController.addListItem('${this.id}')">
-              <input type="text" name="itemName" id="itemName" class="form-control" placeholder="itemName"
-                  aria-describedby="helpId">
+              <input type="text" name="itemName" id="${this.id}" class="form-control" placeholder="Item Name" aria-describedby="helpId" minlength="3" maxlength="50" required>
+                  
               <button type="submit" class="btn btn-success" title='add itemName'><i
                       class="fas fa-plus"></i></button>
           </form>

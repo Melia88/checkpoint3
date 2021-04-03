@@ -10,7 +10,7 @@ export default class ListItem {
   }
 
   get Template() {
-    return /*html*/`<ul><input type="checkbox" aria-label="Checkbox for following text input" ng-class="mr-3 ${this.complete == true}" id="list-chk-box" onchange="app.listItemsController.toggleListItem('${this.id}')">${this.itemName} <i class="fas fa-times ml-2 text-danger" onclick="app.listItemsController.deleteListItem('${this.id}')"></i></ul>`
+    return /*html*/`<ul><input type="checkbox" aria-label="Checkbox for following text input" class="mr-3" id="list-chk-box" onchange="app.listItemsController.toggleListItem('${this.id}')">${this.itemName} <i class="fas fa-times ml-2 text-danger" onclick="app.listItemsController.deleteListItem('${this.id}')"></i></ul>`
   }
 
 }

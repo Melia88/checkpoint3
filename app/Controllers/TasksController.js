@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { tasksService } from "../Services/TasksService.js";
+import { loadState } from "../Utils/LocalStorage.js";
 
 
 
@@ -16,8 +17,9 @@ export default class TasksController {
   constructor() {
     ProxyState.on("tasks", _draw);
     ProxyState.on("listItems", _draw);
+    loadState()
     _draw()
-    console.log('From Controller');
+    // console.log('From Controller');
   }
 
   addTask() {
