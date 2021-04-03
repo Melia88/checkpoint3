@@ -7,18 +7,34 @@ class ListItemsService {
   // saveState()
   toggleListItem(id) {
     console.log(id);
-    // lets find the task w this id 
-    let listItem = ProxyState.listItems.find(listItem => listItem.id === id)
-    return listItem.complete
     
-    ProxyState.listItems = ProxyState.listItems
-    // need to set completed to true
+    // lets find the task w this id 
+    // TODO its connected, I need to make this render to the page now.
+    let listItem = ProxyState.listItems.find(listItem => listItem.id == id)
+    if(listItem.complete == true) {
+       listItem.complete = false
+      //  ProxyState.listItems.length
+    }
+    else{
+       listItem.complete = true
+    }
+
+    // let listItemsCount = [listItem]
+    // if(listItem.      (id) == true)
+    // return false
+    // else {
+    //   return true
+    // }
+    
+      
+    // ProxyState.listItems = ProxyState.listItems
+    // need to set complete to true
     
     // if(ProxyState.listItems = ProxyState.listItems(li => li.id == id){
 
     // }
-    let listItemCount = ProxyState.listItems.filter(li => li.taskId === this.id && li.complete == false).length
-    return listItemCount 
+    // let listItemCount = ProxyState.listItems.filter(li => li.taskId === this.id && li.complete == false).length
+    // return listItemCount 
   }
   deleteListItem(id) {
 

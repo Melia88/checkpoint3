@@ -1,5 +1,5 @@
 import {ProxyState} from '../AppState.js'
-import { generateId } from "../Utils/GenerateId.js"
+import { generateId } from "../Utils/GeneratedId.js"
 export default class Task {
   constructor(taskName, color, id = generateId()) {
       this.taskName = taskName
@@ -15,7 +15,7 @@ export default class Task {
               <h3>${this.taskName}</h3>
               <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')"></i>
           </div>
-          <div id="listItemCount"><span class="ListItemCount"> ${this.ListItemCount}</span></div>
+          <div id="listItemCount"><span class="ListItemCount"> /${this.ListItemCount}</span></div>
           <div class="p-3">
               <ul>
                   ${this.ListItems}
@@ -44,4 +44,9 @@ export default class Task {
     return listItemCount 
   }
 
+  // get CheckedBox(){
+    
+  //   let checkedBox = ProxyState.listItems.filter(listItem => listItem.taskId == this.id && listItem.complete == true).length
+  //   return checkedBox
+  // }
 }
