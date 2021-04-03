@@ -31,18 +31,18 @@
                     <div class="form-group d-flex">
                         <div>
                             <label for="taskName">List Name</label>
-                            <input type="text" name="taskName" id="taskName" class="form-control" placeholder="Task Name..."
-                                aria-describedby="helpId" required min="3" max="15" required>
+                            <input type="text" name="taskName" id="taskName" min="3" max="15" class="form-control" placeholder="Task Name..."
+                                aria-describedby="helpId" required min="3" max="15">
                         </div>
                         <div class="ml-3">
                             <label for="color">Color</label>
                             <select class="custom-select" id="color" aria-label="color select" required>
                                 <!-- <input type='color'> -->
-                                <option value="1">Pink</option>
-                                <option value="2">Purple</option>
-                                <option selected value="3">Orange</option>
-                                <option selected value="4">Yellow</option>
-                                <option selected value="5">Blue</option>
+                                <option value="bg-secondary" class= "bg-secondary">Pink</option>
+                                <option value="bg-purple" class="bg-purple">Purple</option>
+                                <option selected value="bg-orange" class="bg-orange">Orange</option>
+                                <option selected value="bg-yellow" class="bg-yellow">Yellow</option>
+                                <option selected value="bg-cyan" class= "bg-cyan">Blue</option>
                             </select>
                         </div>
                         <div class="ml-3 d-flex align-items-end">
@@ -57,7 +57,7 @@
         </div>
 <!-- input field end -->
 
-        <div id="app"></div>
+        <div class="row bg-white p-5 rounded" id="app"></div>
     </main>
     <footer class="container-fluid bg-dark text-light">
         <div class="row text-center">

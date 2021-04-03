@@ -9,12 +9,13 @@ export default class Task {
 
   get Template() {
     return `
-    <div class="col-md-4">
+    <div class="col-md-4 py-3">
       <div class="task-card shadow bg-white rounded">
           <div class="text-center ${this.color} p-2 d-flex justify-content-between">
               <h3>${this.taskName}</h3>
               <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')"></i>
           </div>
+          <div id="listItemCount"><span class="ListItemCount"> ${this.ListItemCount}</span></div>
           <div class="p-3">
               <ul>
                   ${this.ListItems}
@@ -36,6 +37,11 @@ export default class Task {
     let template = ''
     listItems.forEach(li => template += li.Template)
     return template
+  }
+
+  get ListItemCount(){
+    let listItemCount = ProxyState.listItems.filter(li => li.taskId === this.id && li.complete == false).length
+    return listItemCount 
   }
 
 }

@@ -15,10 +15,24 @@ export default class ListItemsController {
     listItemsService.addListItem(rawListItem)
     // @ts-ignore
     form.reset()
+    
   }
 
   deleteListItem(id) {
     listItemsService.deleteListItem(id)
+  }
+
+  toggleListItem(id){
+    let itemNums = 0
+    let chkBox = document.getElementById('list-chk-box')
+    // @ts-ignore
+    if(chkBox.checked){
+      console.log('yes checked')
+    }
+    else {
+      console.log('not checked');
+    }
+    // listItemsService.toggleListItem(id)
   }
 
 }
