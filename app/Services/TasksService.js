@@ -10,8 +10,8 @@ class TasksService {
     
     if(window.confirm('You Sure About That Delete?')){
       ProxyState.tasks = ProxyState.tasks.filter(t => t.id != id)
-      saveState()
     }
+    saveState()
   }
   constructor(){
 

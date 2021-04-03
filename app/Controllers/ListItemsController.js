@@ -20,7 +20,7 @@ export default class ListItemsController {
     let form = window.event.target
     let rawListItem = {
       itemName: form['itemName'].value,
-      taskId: taskId
+      taskId: taskId,
     }
     listItemsService.addListItem(rawListItem)
     // @ts-ignore
@@ -45,6 +45,8 @@ export default class ListItemsController {
     //     console.log('not checked');
     //   listItemsService.toggleListItem(id)
     // }  
+
+
     listItemsService.toggleListItem(id)
   }
 }

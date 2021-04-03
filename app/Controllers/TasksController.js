@@ -8,6 +8,11 @@ import { loadState } from "../Utils/LocalStorage.js";
 function _draw() {
   let tasks = ProxyState.tasks;
   let template = ''
+  if (tasks.length == 0) {
+    template += '<div class="col text-center"><p><em>no orders</em><p></div>'
+  }
+  // let tasks = ProxyState.tasks;
+  // let template = ''
   tasks.forEach(t => template += t.Template)
   document.getElementById("app").innerHTML = template
 }
@@ -17,8 +22,8 @@ export default class TasksController {
   constructor() {
     ProxyState.on("tasks", _draw);
     ProxyState.on("listItems", _draw);
-    loadState()
     _draw()
+    loadState()
     // console.log('From Controller');
   }
 

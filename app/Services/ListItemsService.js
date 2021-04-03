@@ -8,7 +8,7 @@ class ListItemsService {
   // saveState()
   toggleListItem(id) {
     console.log(id);
-    
+    debugger
     // lets find the task w this id 
     // TODO its connected, I need to make this render to the page now.
     let listItem = ProxyState.listItems.find(listItem => listItem.id == id)
@@ -20,24 +20,20 @@ class ListItemsService {
        listItem.complete = true
     }
     saveState()
-
   }
   deleteListItem(id) {
 
     if(window.confirm('You Sure About That Delete?')){
       ProxyState.listItems = ProxyState.listItems.filter(li => li.id != id)
-
-    }
-    
+    }  
      saveState()
-
   }
   addListItem(rawListItem) {
     // console.log(rawListItem)
     ProxyState.listItems.push(new ListItem(rawListItem.itemName, rawListItem.taskId, false))
-    saveState()
     ProxyState.listItems = ProxyState.listItems
     // console.log(ProxyState.listItems);
+    saveState()
   }
 }
 

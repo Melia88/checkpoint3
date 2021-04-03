@@ -13,9 +13,10 @@ export default class Task {
       <div class="task-card shadow bg-white rounded">
           <div class="text-center ${this.color} p-2 d-flex justify-content-between">
               <h3>${this.taskName}</h3>
-              <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')"></i>
+              <div id="listItemCount"><span class="ListItemCount"> ${ProxyState.listItems.length}/${this.ListItemCount}</span></div>
+              <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')" title='Delete Your Task Box'></i>
           </div>
-          <div id="listItemCount"><span class="ListItemCount"> ${this.ListItemCount}/${ProxyState.listItems.length}</span></div>
+          
           <div class="p-3">
               <ul>
                   ${this.ListItems}
@@ -24,7 +25,7 @@ export default class Task {
           <form class="d-flex p-2" onsubmit="app.listItemsController.addListItem('${this.id}')">
               <input type="text" name="itemName" id="${this.id}" class="form-control" placeholder="Item Name" aria-describedby="helpId" minlength="3" maxlength="50" required>
                   
-              <button type="submit" class="btn btn-success" title='add itemName'><i
+              <button type="submit" class="btn btn-success" title='Add Your ToDo Here'><i
                       class="fas fa-plus"></i></button>
           </form>
       </div>
@@ -43,6 +44,8 @@ export default class Task {
     let listItemCount = ProxyState.listItems.filter(li => li.taskId === this.id && li.complete == false).length
     return listItemCount 
   }
+
+  
 
   // get CheckedBox(){
     
