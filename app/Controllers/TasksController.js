@@ -9,7 +9,7 @@ function _draw() {
   let tasks = ProxyState.tasks;
   let template = ''
   if (tasks.length == 0) {
-    template += '<div class="col text-center"><p><em>no orders</em><p></div>'
+    template += '<div class="col text-center"><p><em>No Tasks!! Go Have Fun!!</em><p></div>'
   }
   // let tasks = ProxyState.tasks;
   // let template = ''
@@ -22,8 +22,8 @@ export default class TasksController {
   constructor() {
     ProxyState.on("tasks", _draw);
     ProxyState.on("listItems", _draw);
-    _draw()
     loadState()
+    _draw()
     // console.log('From Controller');
   }
 
@@ -34,7 +34,6 @@ export default class TasksController {
       taskName: form['taskName'].value,
       color: form['color'].value
     }
-    console.log(rawTask);
     tasksService.addTask(rawTask)
 
     // @ts-ignore

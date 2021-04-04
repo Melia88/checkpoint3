@@ -12,8 +12,10 @@ export default class Task {
     <div class="col-md-4 py-3">
       <div class="task-card shadow bg-white rounded">
           <div class="text-center ${this.color} p-2 d-flex justify-content-between">
+          <div class="d-flex flex-column">
               <h3>${this.taskName}</h3>
-              <div id="listItemCount"><span class="ListItemCount"> ${ProxyState.listItems.length}/${this.ListItemCount}</span></div>
+              <div> ${this.ListItemsLeft} / ${this.ListItemTotal}</div>
+              </div>
               <i class="fas fa-times ml-2" onclick="app.tasksController.deleteTask('${this.id}')" title='Delete Your Task Box'></i>
           </div>
           
@@ -23,9 +25,9 @@ export default class Task {
               </ul>
           </div>
           <form class="d-flex p-2" onsubmit="app.listItemsController.addListItem('${this.id}')">
-              <input type="text" name="itemName" id="${this.id}" class="form-control" placeholder="Item Name" aria-describedby="helpId" minlength="3" maxlength="50" required>
+              <input type="text" name="itemName" id="itemName" class="form-control" placeholder="Add Item..." aria-describedby="helpId" minlength="3" maxlength="50" required>
                   
-              <button type="submit" class="btn btn-success" title='Add Your ToDo Here'><i
+              <button type="submit" class="btn btn-primary" title='Add Your ToDo Here'><i
                       class="fas fa-plus"></i></button>
           </form>
       </div>
@@ -34,22 +36,19 @@ export default class Task {
   }
 
   get ListItems() {
-    let listItems = ProxyState.listItems.filter(li => li.taskId === this.id)
+    let listItems = ProxyState.listItems.filter(i => i.taskId === this.id)
     let template = ''
-    listItems.forEach(li => template += li.Template)
+    listItems.forEach(i => template += i.Template)
     return template
   }
 
-  get ListItemCount(){
-    let listItemCount = ProxyState.listItems.filter(li => li.taskId === this.id && li.complete == false).length
-    return listItemCount 
+  get ListItemTotal(){
+    let listItemTotal = ProxyState.listItems.filter(i => i.taskId === this.id)
+    return listItemTotal.length 
   }
 
-  
-
-  // get CheckedBox(){
-    
-  //   let checkedBox = ProxyState.listItems.filter(listItem => listItem.taskId == this.id && listItem.complete == true).length
-  //   return checkedBox
-  // }
+  get ListItemsLeft(){
+    let listItemsLeft = ProxyState.listItems.filter(li => li.taskId === this.id && li.checked == false)
+    return listItemsLeft.length
+  }  
 }

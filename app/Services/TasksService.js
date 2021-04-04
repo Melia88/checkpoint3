@@ -1,7 +1,5 @@
 import { ProxyState } from "../AppState.js";
-import ListItem from "../Models/ListItem.js";
 import Task from "../Models/Task.js";
-import { listItemsService } from "./ListItemsService.js";
 import { saveState } from "../Utils/LocalStorage.js";
 
 
@@ -13,14 +11,11 @@ class TasksService {
     }
     saveState()
   }
-  constructor(){
-
-    console.log('From Service');
-  }
+ 
   addTask(rawTask) {
     ProxyState.tasks = [...ProxyState.tasks, new Task(rawTask.taskName, rawTask.color)]
     saveState()
-    console.log(ProxyState.tasks);  
+    // console.log(ProxyState.tasks);  
   }
 
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
         
     <link rel="stylesheet" href="assets/style/main.css">
@@ -15,10 +16,10 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
-            <a class="navbar-brand" href="#">
-                <img src="assets/img/logo.png" width="45" height="45" alt="" loading="lazy">
+    <header class="container-fluid">
+        <nav class="row navbar navbar-dark navbar-expand bg-info text-dark">
+            <a class="col-md-12 navbar-brand text-center" href="#">
+                <i class="fas fa-clipboard-check w3-xxxlarge ml-3 mr-2"></i>
                 <span class="ml-2">Task Master</span>
             </a>
         </nav>
@@ -31,7 +32,7 @@
                     <div class="form-group d-flex">
                         <div>
                             <label for="taskName">List Name</label>
-                            <input type="text" name="taskName" id="taskName" minlength="3" maxlength="15" class="form-control" placeholder="Task Name..."
+                            <input type="text" name="taskName" id="taskName" minlength="3" maxlength="15" class="form-control" placeholder="List Name..."
                                 aria-describedby="helpId" required min="3" max="15">
                         </div>
                         <div class="ml-3">
@@ -46,7 +47,7 @@
                             </select>
                         </div>
                         <div class="ml-3 d-flex align-items-end">
-                            <button type="submit" class="btn btn-success" title='add task'><i
+                            <button type="submit" class="btn btn-secondary" title='Add Task Box Name'><i
                                     class="fas fa-plus"></i></button>
                         </div>
                     </div>
@@ -59,7 +60,7 @@
 
         <div class="row bg-white p-5 rounded" id="app"></div>
     </main>
-    <footer class="container-fluid bg-dark text-light">
+    <footer class="container-fluid bg-info text-light">
         <div class="row text-center">
             <div class="col">
                 <p><small>Made with blood, sweat, and tears by Melia</small></p>
